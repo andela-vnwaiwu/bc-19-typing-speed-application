@@ -1,0 +1,91 @@
+body {
+  background-color: #F8DAB6;
+}
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#test-items{
+  border-radius:5px;
+  position:relative;
+  margin:8% auto auto auto;
+  padding:20px;
+  display:table;
+  max-width: 500px;
+  background-color:#fff;
+  font-size: 16px;
+  font-family: sans-serif lato;
+  text-align: center;
+}
+
+#textarea{
+  border-radius:5px;
+  position:relative;
+  margin:8% auto auto auto;
+  padding:20px;
+  display:table;
+  max-width: 500px;
+  background-color:#fff;
+  font-size: 16px;
+  font-family: sans-serif lato;
+  text-align: center;
+}
+
+#type-area {
+  background-color: #ffffff;
+  min-height: 450px;
+  padding: 10px;
+}
+.intro {
+  text-align: center;
+}
+.small-container {
+  width: 800px;
+  text-align: center;
+}
+.jumbotron {
+  text-align: center;
+}
+.scores {
+  text-align: center;
+}
+.results {
+  font-size: 24px;
+}
+.caption {
+  text-align: center;
+  font-size: 12px;
+}
+
+#test-area {
+  margin-top: 20px;
+}
+
+#authenticate {
+  border-radius:5px;
+  border: 2px solid #999999;
+  position:relative;
+  margin:20px auto auto auto;
+  padding:20px;
+  display:table;
+  max-width: 500px;
+  background-color:#fff;
+  font-size: 16px;
+  font-family: sans-serif lato;
+  text-align: center;
+}
+.button-box {
+  clear: both;
+}
+ .tweet-button {
+   float: left;
+ }
+
+.quotes-button {
+  float: right;
+}
+.footer-text {
+  color: #000000;
+  text-align: center;
+  font-size: 18px;
+}
