@@ -47,12 +47,6 @@ var calculateScore = function() {
 			score += 1;
 		}
 	}
-	// console.log(wordCount);
-	// return wordCount;
-
-	// var testWords = testMock.innerHTML.split(" ");
-	console.log(presentTestMock);
-console.log(score);
 	return score;
 };
 
