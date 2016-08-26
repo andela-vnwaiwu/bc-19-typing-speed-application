@@ -1,30 +1,23 @@
 body {
   background-color: #F8DAB6;
+  font-size: 18px;
 }
 #wrapper {
 	min-height:100%;
 	position:relative;
 }
-#test-items{
-  border-radius:5px;
-  position:relative;
-  margin:8% auto auto auto;
-  padding:20px;
-  display:table;
-  max-width: 500px;
-  background-color:#fff;
-  font-size: 16px;
+#text-mock{
+  font-size: 18px;
   font-family: sans-serif lato;
-  text-align: center;
+  text-align: justify;
 }
 
-#textarea{
+#textArea{
   border-radius:5px;
   position:relative;
-  margin:8% auto auto auto;
+  margin:20px auto auto auto;
   padding:20px;
   display:table;
-  max-width: 500px;
   background-color:#fff;
   font-size: 16px;
   font-family: sans-serif lato;
@@ -56,9 +49,17 @@ body {
   text-align: center;
   font-size: 12px;
 }
+p {
+  font-size: 14px;
+}
 
-#test-area {
+#testArea {
   margin-top: 20px;
+  width: 100%;
+}
+
+#wrapper {
+  width: 100%;
 }
 
 #authenticate {

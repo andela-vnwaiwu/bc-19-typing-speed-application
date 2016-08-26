@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Typing Speed Application</title>
@@ -10,7 +9,29 @@
     <!--  Import bootstrap javascript and jquery scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script  src="js/login.js"></script>
+		<script  src="js/index.js"></script>
+    <script language='text/javascript'>
+      function validate() {
+        window.location = "https://www.google.com";
+        var username = document.getElementById('login_username').value;
+        var password = document.getElementById('login_password').value;
+        if(username == "" || password == "") {
+          alert('You did not enter a username or password');
+        } else {
+          if(username == 'victor' && password == 'olusegun') {
+            window.location = "https://www.google.com";
+          } else {
+            alert('Invalid username and password');
+          }
+        }
+      }
+
+      function checkUser(username, password) {
+        if(username == 'victor' && password == 'olusegun') {
+          return true
+        }
+      }
+  </script>
   </head>
   <body>
     <header>
@@ -27,7 +48,7 @@
             <a class="navbar-brand" href="#">Typing Test</a>
           </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
+          <!--Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">Home</a></li>
@@ -40,22 +61,44 @@
     <main>
       <div class="container">
         <div class="row">
-          <div id="authenticate">
+          <div id="authenticate"> -->
             <form>
               <div class="form-group">
-                <label for="inputEmail">Email</label>
-                <input type="username" class="form-control" id="inputusername" placeholder="username">
+                <label for="inputEmail">Username</label>
+                <input type="username" class="form-control" id="login_username" name="login_username" placeholder="username">
               </div>
               <div class="form-group">
                 <label for="inputPassword">Password</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" class="form-control" id="login_password" name="login_password" placeholder="Password">
               </div>
-              <button id="login" type="submit" class="btn btn-primary">Login</button>
-              <button id="login" type="submit" class="btn btn-primary">Sign up</button>
+              <input type="button" class="btn btn-primary" value="Log in" id="login" onclick="validate()"/>
+              <button id="login" type="submit" onclick="register()" class="btn btn-primary">Sign up</button>
             </form>
           </div>
         </div>
       </div>
     </main>
+    <!-- <script language='javascript'>
+      function validate() {
+        window.location="https://www.google.com";
+      //   var username = document.getElementById('login_username').value;
+      //   var password = document.getElementById('login_password').value;
+      //   if(username == "" || password == "") {
+      //     alert('You did not enter a username or password');
+      //   } else {
+      //     if(username == 'victor' && password == 'olusegun') {
+      //       window.location = 'https://www.google.com';
+      //     } else {
+      //       alert('Invalid username and password');
+      //     }
+      //   }
+      // }
+      //
+      // function checkUser(username, password) {
+      //   if(username == 'victor' && password == 'olusegun') {
+      //     return true
+      //   }
+      }
+      </script> -->
   </body>
 </html>
