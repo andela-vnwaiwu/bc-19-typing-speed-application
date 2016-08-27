@@ -63,9 +63,8 @@
      */
     function handleSignUp() {
       var email = document.getElementById('email').value;
-      var rawUsername1 = document.getElementById('username').value;
+      var username = document.getElementById('username').value;
       var password = document.getElementById('password').value;
-      var username = rawUsername.trim();
       if (email.length < 4) {
         alert('Please enter an email address.');
         return;
@@ -86,14 +85,11 @@
         user.updateProfile({
           displayName: username
         }).then(function() {
-          console.log(user);
             firebase.database().ref('users/' + user.uid).set({
             username: username,
-            email: email
-          }).then(function() {
-            console.log("I am in facebook");
-            window.location.href = "index.html";
-          })    
+            email: email,
+            scores:[0]
+          })
         }, function(error) {
           console.log(error.message);
         })
@@ -134,18 +130,34 @@
           var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
+
           // [START_EXCLUDE silent]
           document.getElementById('sign-in-status').textContent = 'Signed in';
           document.getElementById('login').textContent = 'Sign out';
+          document.getElementById('my-name').innerHTML = displayName;
           document.getElementById('authentication').classList.add("hidden");
           document.getElementById('dashboard').classList.remove("hidden");
-          document.getElementById('my-name').innerHTML = displayName;
+          document.getElementById('logout').classList.remove('hidden');
+
+          var db = firebase.database();
+          
+          // displays the users latest score on the dashboard
+          var ref = db.ref("users/" + uid ).on("value", function(snapshot) {
+                      users = snapshot.val();
+                      console.log(users.scores.length);
+                      document.getElementById('wpm').innerHTML = users.scores;
+                      document.getElementById('cpm').innerHTML = users.email;
+                      document.getElementById('times').innerHTML = users.scores.length -1;
+                      // return users.username;
+                    })
+          // document.getElementById('cpm').innerHTML = ref;
           // [END_EXCLUDE]
         } else {
           // User is signed out.
           // [START_EXCLUDE silent]
           document.getElementById('sign-in-status').textContent = 'Signed out';
           document.getElementById('login').textContent = 'Sign in';
+          document.getElementById('logout').classList.add('hidden');
           document.getElementById('authentication').classList.remove("hidden");
           document.getElementById('dashboard').classList.add("hidden");
           // [END_EXCLUDE]

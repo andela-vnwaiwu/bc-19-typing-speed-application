@@ -57,14 +57,14 @@ var displayTime = function () {
 	var getTime = setInterval(function() {
 		timeRemaining--;
 		timer.innerHTML = "Time Remaining: " + timeRemaining + "s";
-// 		var testMockList = testMock.innerHTML.split(" ");
-// 		for(var j = 0; j < testMockList.length; j++) {
-// 			$('#textArea').keyup(function() {
-//     var dInput = this.value;
-//     console.log(dInput);
-//     $(".dDimension:contains('" + dInput + "')").css("display","block");
-// });
-// 		}
+		// var testMockList = testMock.innerHTML.split(" ");
+		// for(var j = 0; j < testMockList.length; j++) {
+		// 	$('#textArea').keyup(function() {
+		// 		var dInput = this.value;
+		// 		console.log(dInput);
+		// 		$("paraContainer:contains('" + dInput + "')").css("display","block");
+		// 	});
+		// }
 
 		console.log(timeRemaining);
 
@@ -88,6 +88,7 @@ var displayTime = function () {
 
 var test = function() {
 	textArea.addEventListener("keydown", displayTime);
+	// testArea.addEventListener("keyup", )
 };
 
 takeTest.addEventListener("click", showWindow);
