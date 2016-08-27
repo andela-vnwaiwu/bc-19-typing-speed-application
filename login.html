@@ -1,104 +1,55 @@
 <html>
   <head>
-    <title>Typing Speed Application</title>
-    <!-- Import bootstrap.css file -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Login / Signup </title>
     <link rel="stylesheet" href="css/stylesheet.css">
-
-    <!--  Import bootstrap javascript and jquery scripts -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>     
+    <script type="text/javascript" src="js/users.js"></script>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Typing Test</a>
-          </div>
-
-          <!--Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Home</a></li>
-              <li><a href="leaderboard.html">LeaderBoards</a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-    </header>
-    <main>
-      <div class="container">
-        <div class="row">
-          <div id="authenticate">
-            <form>
-              <div class="form-group">
-                <label for="inputEmail">Email</label>
-                <input type="username" class="form-control" id="signup_email" name="signup_email" placeholder="email">
-              </div>
-              <div class="form-group">
-                <label for="inputPassword">Password</label>
-                <input type="password" class="form-control" id="signup_password" name="signup_password" placeholder="Password">
-              </div>
-              <input type="button" class="btn btn-primary" value="Log in" id="login" />
-              <button id="login" type="submit" onclick="register()" class="btn btn-primary">Sign up</button>
-              <button id="googleLogin" type="submit" onClick="SigninWithGoogle()">Login With Google</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </main>
-    <script type="text/javascript">  
-
-        // Initialize Firebase
-        var config = {
-          apiKey: "AIzaSyAAz_1HRSzLX5LHsm0jkg3Nbh40Yb8plv0",
-          authDomain: "typing-speed-application.firebaseapp.com",
-          databaseURL: "https://typing-speed-application.firebaseio.com",
-          storageBucket: "typing-speed-application.appspot.com",
-        };
-        firebase.initializeApp(config);
-
-        $('#login').on('click', function(){
-          var email = document.getElementById('signup_email').value;
-          var password = document.getElementById('signup_password').value;
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then(function(userData){
-              // var profile = localStorage.getItem()
-              console.log(profile, 'inside the')
-              console.log(userData, 'test user data imput')
-            })
-            .catch(function(error) {
-              // Handle Errors here.
-              var errorCode = error.code;
-              var errorMessage = error.message;
-            // ...
-          });
+    <div class="hidden popup" id="register-div">
+      <h2>Register</h2>
+      <p>Please enter your details here</p>
+      <form method="get" action="" onsubmit="return store(this);" id="register">
+        <label for="username">User Name</label>
+          <input type="text" id="username" placeholder="Select A User Name" required value="" /><br />
+        <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Type a password" required value="" /><br />
+        <label for="pass">Password</label>
+          <input type="password" id="password" placeholder="Select A Password" required value="" /><br />
+        <button id="back">Back to Log in</button><button id="register"> Register</button>
+      </form>
+    </div>
+    <br />
+    <div class="popup" id="login-div">
+      <h2>Welcome Guest!</h2>
+      <p>Please enter your login and password here</p>
+      <form method="get" action="" onsubmit="return login(this);" id="signon">
+        <label for="email">User Name </label>
+          <input type="text" id="username" placeholder="Your Password" required value="" /><br />
+        <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Your Password" required value="" /><br />
+        <button id="login">Log in</button><button id="signup"> Sign Up</button>
+      </form>
+      <!--<a class="close" href="#close"></a>-->
+    </div>
+    <div id="welcomeMessage"></div>
+    <script type="text/javascript">
+      $(document).ready(function(e) {
+        $("#signup").click(function() {
+          $("#register-div").removeClass("hidden");
+          $("#login-div").addClass("hidden");
+        });
+        $("#back").click(function() {
+          $("#register-div").addClass("hidden");
+          $("#login-div").removeClass("hidden");
+        });
+        $("#login").click(function() {
+          var username = document.getElementById("username").innerHTML.value;
+          var password = document.getElementById("password").innerHTML.value;
         })
-
-        function SigninWithGoogle(){
-          console.log('google stuv');
-          var provider = new firebase.auth.GoogleAuthProvider();
-          firebase.auth().signInWithPopup(provider).then(function(result) {
-              // The signed-in user info.
-              var user = result.user;
-              console.log(user, 'user object')
-              // var profile = localStorage.getItem('profile');
-              // console.log(profile, 'Profile stuff')
-            }).catch(function(error) {
-              console.log(error, 'This is the rero')
-            });
-        };
+      })
     </script>
-		<script  src="js/index.js"></script>               
   </body>
 </html>
