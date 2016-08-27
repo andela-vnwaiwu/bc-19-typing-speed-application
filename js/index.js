@@ -49,6 +49,7 @@ var calculateScore = function() {
 			score += 1;
 		}
 	}
+	document.getElementById('cpm').innerHTML = wordsTyped.length;
 	return score;
 };
 
@@ -78,13 +79,37 @@ var displayTime = function () {
 
 			finalScore.innerHTML = "Your speed is: " + calculateScore() + " words per minute.";
 			newTestWindow.style.display = "block";
+
+			// Saves the user score into the database.
+			var db = firebase.database();
+			var ref
 		}
 	}, 1000);
 
 	textArea.removeEventListener("keydown", displayTime);
 };
 
-
+function getUserInfo() {
+	firebase.auth().onAuthStateChanged(function(user) {
+		if(user) {
+			var db = firebase.database();
+			var ref = db.ref("users/" + user.uid ).on("value", function(snapshot) {
+				users = snapshot.val();
+				var userScores = users.scores;
+				console.log(userScores);
+				scores = [];
+				for(key in userScores) {
+					scores.push(userScores[key]);
+				}
+				console.log(scores);
+				document.getElementById('wpm').innerHTML = scores[scores.length - 1];
+				document.getElementById('cpm').innerHTML = 0;
+				document.getElementById('times').innerHTML = users.scores.length -1;
+				return scores;
+			});
+		}
+	})
+}
 
 var test = function() {
 	textArea.addEventListener("keydown", displayTime);
