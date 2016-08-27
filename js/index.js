@@ -1,3 +1,5 @@
+// Aunthenticate a user
+
 //Instantiating the typing application
 
 var timer = document.getElementById("timer");
@@ -47,12 +49,6 @@ var calculateScore = function() {
 			score += 1;
 		}
 	}
-	// console.log(wordCount);
-	// return wordCount;
-
-	// var testWords = testMock.innerHTML.split(" ");
-	console.log(presentTestMock);
-console.log(score);
 	return score;
 };
 
@@ -61,6 +57,14 @@ var displayTime = function () {
 	var getTime = setInterval(function() {
 		timeRemaining--;
 		timer.innerHTML = "Time Remaining: " + timeRemaining + "s";
+		// var testMockList = testMock.innerHTML.split(" ");
+		// for(var j = 0; j < testMockList.length; j++) {
+		// 	$('#textArea').keyup(function() {
+		// 		var dInput = this.value;
+		// 		console.log(dInput);
+		// 		$("paraContainer:contains('" + dInput + "')").css("display","block");
+		// 	});
+		// }
 
 		console.log(timeRemaining);
 
@@ -84,6 +88,7 @@ var displayTime = function () {
 
 var test = function() {
 	textArea.addEventListener("keydown", displayTime);
+	// testArea.addEventListener("keyup", )
 };
 
 takeTest.addEventListener("click", showWindow);
@@ -107,3 +112,5 @@ var passage4 = "Mr. Simms doesn't want it. He desn't need to labeled, 'Still wor
 // Out of order. I'll show YOU 'out of order'! You don't know what 'out of order' is, Mr. Trask. I'd show you, but I'm too old, I'm too tired, I'm too fucking blind. If I were the man I was five years ago, I'd take a...FLAMETHROWER to this place! Out of order? Who the hell do ya think you're talking to? I've been around, ya know? There was a time I could see. And I have seen. Boys like these, younger than these. Their arms torn out, their legs ripped off. But there is nothing like the sight of an amputated spirit. There's no prostetic for that. You think you're merely sending this splendid foot solder back home to Oregon with tail between his legs, but I say you are executing his SOUL! And why? Because he's not a Baird man. Baird men. You hurt this boy, you're gonna be Baird bums, the lot of ya. And Harry, Jimmy, Trent, wherever you are, fuck you too!Stand down, Mr. Slade!I'm not finished! As I came in here, I heard those words, 'Cradle of Leadership'. Well, when the bough breaks, the cradle will fall. And it has fallen here. It has fallen. Makers of men, Creators of leaders. Be careful what kind of leaders you're producing here. I don't know if Charlie's silence here today is right or wrong. I'm not a judge or jury, but I can tell you this: He won't sell anybody out to buy his future! And that, my friends, is called integrity. That's called courage. Now that's the stuff leaders should be made of. Now I have come to the crossroads in my life. I always knew what the right path was. Without exception, I knew. But I never took it. You know why? It was too damn hard. Now here's Charlie. He's come to the crossroads. He has chosen a path. It's the right path. It's a path made of principle that leads to character. Let him continue on his journey. You hold this boy's future in your hands, committee. It's a valuable future. Believe me. Don't destroy it. Protect it. Embrace it. It's gonna make you proud one day, I promise you.";
 
 var passage5 = "Consider yourself in Contempt! Colonel Jessep, did you order the Code Red? You don't have to answer that question! I'll answer the question! You want answers? I think I'm entitled to. You want answers? I want the truth! You can't handle the truth! Son, we live in a world that has walls, and those walls have to be guarded by men with guns. Who's gonna do it? You? You, Lt. Weinburg? I have a greater responsibility than you could possibly fathom. You weep for Santiago, and you curse the Marines. You have that luxury. You have the luxury of not knowing what I know. That Santiago's death, while tragic, probably saved lives. And my existence, while grotesque and incomprehensible to you, saves lives. You don't want the truth because deep down in places you don't talk about at parties, you want me on that wall, you need me on that wall. We use words like honor, code, loyalty. We use these words as the backbone of a life spent defending something. You use them as a punchline. I have neither the time nor the inclination to explain myself to a man who rises and sleeps under the blanket of the very freedom that I provide, and then questions the manner in which I provide it. I would rather you just said thank you, and went on your way, Otherwise, I suggest you pick up a weapon, and stand a post. Either way, I don't give a damn what you think you are entitled to. Did you order the Code Red? I did the job. Did you order the Code Red? You're Goddamn right I did!";
+
+
