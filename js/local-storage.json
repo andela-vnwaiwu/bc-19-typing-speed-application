@@ -1,12 +1,17 @@
-  { "username": "victor",
-    "password": "olusegun",
-    "email": "asd@yahoo.com",
-    "scores": [] },
-  { "username": "john",
-    "password": "olusegun",
-    "email": "asd@yaho.com",
-    "scores": [] },
-  { "username": "chris",
-    "password": "olusegun",
-    "email": "asd@yaho.com",
-    "scores": [] }
+{ 	
+ "1":{ "username": "victor",
+       "password": "olusegun", 
+       "email": "asd@yahoo.com", 
+       "scores": [] 
+       }, 
+ "2":{ "username": "john", 
+        "password": "olusegun", 
+        "email": "asd@yaho.com", 
+        "scores": [] 
+        },
+ "3":{ "username": "chris", 
+        "password": "olusegun", 
+        "email": "asd@yaho.com", 
+        "scores": [] }
+ 
+}
