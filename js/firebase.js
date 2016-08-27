@@ -17,12 +17,18 @@
       } else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
+        var rawUsername = document.getElementById('username').value;
+        var username = rawUsername.trim();
         if (email.length < 4) {
           alert('Please enter an email address.');
           return;
         }
         if (password.length < 4) {
           alert('Please enter a password.');
+          return;
+        }
+        if (username.length == "") {
+          alert('Please enter a password');
           return;
         }
         // Sign in with email and pass.
@@ -57,14 +63,19 @@
      */
     function handleSignUp() {
       var email = document.getElementById('email').value;
-      var username = document.getElementById('username').value;
+      var rawUsername1 = document.getElementById('username').value;
       var password = document.getElementById('password').value;
+      var username = rawUsername.trim();
       if (email.length < 4) {
         alert('Please enter an email address.');
         return;
       }
       if (password.length < 4) {
         alert('Please enter a password.');
+        return;
+      }
+      if (username == "") {
+        alert('Please enter a username');
         return;
       }
       // Sign in with email and pass.
