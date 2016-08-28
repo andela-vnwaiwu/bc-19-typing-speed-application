@@ -1,6 +1,11 @@
 body {
-  background-color: #F8DAB6;
+  background-color: #e8ecfa;
   font-size: 18px;
+}
+.image {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 80px;
 }
 #wrapper {
 	min-height:100%;
@@ -11,7 +16,31 @@ body {
   font-family: sans-serif lato;
   text-align: justify;
 }
+text-fonts {
+  text-align: justify;
+  
+}
+#timer {
+  background-color: mediumseagreen;
+  min-height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 10px;
+}
+#paraContainer{
+  padding: 20px;
+}
 
+.navbar-typing {
+  background-color: #3359DE;
+  min-height: 70px;
+  border-color: #3359DE;
+  box-shadow: 2px 2px 3px #666666;
+  border-radius: 0px;
+} 
+.white {
+  color: #FFFFFF;
+}
 #textArea{
   border-radius:5px;
   position:relative;
@@ -39,6 +68,9 @@ body {
 .jumbotron {
   text-align: center;
 }
+.center {
+  text-align: center;
+}
 .scores {
   text-align: center;
 }
@@ -52,14 +84,34 @@ body {
 p {
   font-size: 14px;
 }
+#takeTest {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 
+#test-button {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
 #testArea {
   margin-top: 20px;
   width: 100%;
 }
+#paraContainer {
+  float: left;
+  overflow: hidden;
+}
+#testArea {
+  float: left;
+  overflow: hidden;
+}
 .hidden{
   visibility: hidden;
   display: none;
+}
+.scores {
+  margin-top: 10px;
 }
 
 #wrapper {
@@ -90,7 +142,16 @@ p {
   float: right;
 }
 .footer-text {
-  color: #000000;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  /*background-color: #efefef;*/
   text-align: center;
-  font-size: 18px;
+}
+footer{
+  background-color: #3359DE;
+  color: #FFFFFF;
+  box-shadow: 2px -2px 3px #666666;
+  /*margin-bottom: 10px;*/
 }

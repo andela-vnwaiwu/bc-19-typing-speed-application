@@ -141,20 +141,6 @@
 
           var db = firebase.database();
           
-          // displays the users latest score on the dashboard
-          // function getUserInfo() {
-          //   firebase.auth().onAuthStateChanged(function(user) {
-          //     if(user) {
-          //       var ref = db.ref("users/" + uid ).on("value", function(snapshot) {
-          //         users = snapshot.val();
-          //         console.log(users.scores.length);
-          //         document.getElementById('wpm').innerHTML = users.scores;
-          //         document.getElementById('cpm').innerHTML = users.email;
-          //         document.getElementById('times').innerHTML = users.scores.length -1;
-          //       });
-          //     }
-          //   })
-          // }
           getUserInfo();
           
           // document.getElementById('cpm').innerHTML = ref;
