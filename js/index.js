@@ -49,7 +49,10 @@ var calculateScore = function() {
 			score += 1;
 		}
 	}
+	scoreArray = [];
+	scoreArray.push([score, wordsTyped.length]);
 	document.getElementById('cpm').innerHTML = wordsTyped.length;
+	console.log(wordsTyped.length);
 	return score;
 };
 
@@ -78,38 +81,117 @@ var displayTime = function () {
 			console.log(finalScore);
 
 			finalScore.innerHTML = "Your speed is: " + calculateScore() + " words per minute.";
+			saveScores();
 			newTestWindow.style.display = "block";
 
-			// Saves the user score into the database.
-			var db = firebase.database();
-			var ref
 		}
 	}, 1000);
 
 	textArea.removeEventListener("keydown", displayTime);
 };
 
+// Get a user's score when they are signed in
 function getUserInfo() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
 			var db = firebase.database();
-			var ref = db.ref("users/" + user.uid ).on("value", function(snapshot) {
-				users = snapshot.val();
-				var userScores = users.scores;
-				console.log(userScores);
-				scores = [];
-				for(key in userScores) {
-					scores.push(userScores[key]);
+			var ref = db.ref("scores/").on("value", function(snapshot) {
+				scores = snapshot.val();
+				Score = [];
+				for(key in scores) {
+					if(scores[key].userid == user.uid) {
+						Score.push(scores[key]);
+					}
 				}
-				console.log(scores);
-				document.getElementById('wpm').innerHTML = scores[scores.length - 1];
-				document.getElementById('cpm').innerHTML = 0;
-				document.getElementById('times').innerHTML = users.scores.length -1;
-				return scores;
+				Score.sort(function(a, b){
+						return a.time < b.time;
+				})
+				// console.log(Score);
+				document.getElementById('wpm').innerHTML = Score[0].scores;
+				document.getElementById('times').innerHTML = Score.length;
 			});
 		}
 	})
 }
+
+// Get a user's score when they are signed in
+function leaderboard() {
+	var db = firebase.database();
+	var ref = db.ref("scores/").on("value", function(snapshot) {
+		scores = snapshot.val();
+		Scores = [];
+		for(key in scores) {
+			Scores.push(scores[key]);
+		}
+		// console.log(Scores);
+		Scores.sort(function(a, b){
+						return a.scores < b.scores;
+		})
+		console.log(Scores);
+		var highestScores = []; var new_object = {};
+		for (i=0; i< Scores.length; i++){
+			if(new_object[Scores[i].username] === undefined){
+				new_object[Scores[i].username] =  Scores[i];
+				highestScores.push(Scores[i]);
+			}
+		}
+		console.log(highestScores);
+
+		// var listScores ={};
+		// for(m = 0; m < Scores.length; m++) {
+		// 	if(listScores.hasOwnProperty(Scores[m].username)) {
+		// 		listScores[Scores[m].username].push(Scores[m]);
+		// 	} else {
+		// 		listScores[Scores[m].username] = Scores[m];
+		// 	}
+		// }
+		// console.log(listScores);
+	// firebase.auth().onAuthStateChanged(function(user) {
+	// 	if(user) {
+	// 		var db = firebase.database();
+	// 		var ref = db.ref("scores/").on("value", function(snapshot) {
+	// 			scores = snapshot.val();
+	// 			Score = [];
+	// 			for(key in scores) {
+	// 				if(scores[key].userid == user.uid) {
+	// 					Score.push(scores[key]);
+	// 				}
+	// 			}
+	// 			Score.sort(function(a, b){
+	// 					return a.time < b.time;
+	// 			})
+	// 			console.log(Score);
+	// 			document.getElementById('wpm').innerHTML = Score[0].scores;
+	// 			document.getElementById('times').innerHTML = Score.length;
+	// 		});
+	// 	}
+	// }
+	})
+}
+
+leaderboard();
+
+function saveScores() {
+	firebase.auth().onAuthStateChanged(function(user) {
+		if(user) {
+			var db = firebase.database();
+			var ref = db.ref("scores/").push({
+				userid : user.uid,
+				username: user.displayName,
+				scores : calculateScore(),
+				time: new Date().getTime()
+			}, function(error){
+				if(error) {
+					console.log("Error");
+				}else{
+					console.log("Success");
+				}
+			});
+		}
+	})
+}
+
+
 
 var test = function() {
 	textArea.addEventListener("keydown", displayTime);
