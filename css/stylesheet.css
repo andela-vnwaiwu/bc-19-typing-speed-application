@@ -57,6 +57,14 @@ p {
   margin-top: 20px;
   width: 100%;
 }
+#paraContainer {
+  float: left;
+  overflow: hidden;
+}
+#testArea {
+  float: left;
+  overflow: hidden;
+}
 .hidden{
   visibility: hidden;
   display: none;

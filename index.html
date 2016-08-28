@@ -41,6 +41,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+              <li><a id="sign-in-status"></a></li>
               <li><a href="#">Home</a></li>
               <li><a href="leaderboard.html">LeaderBoards</a></li>
               <li><a href="#" id="logout">Logout</a></li>
@@ -53,7 +54,6 @@
       <div class="container">
         <div class="row">
           <h1 class="intro"> Welcome to the Typing Speed Application</h1>
-          <div id="sign-in-status"></div>
           <form id="authentication" class="small-container">
             <div class="form-group">
               <label for="email">Email address:</label>
@@ -79,23 +79,23 @@
               <h3>
                 These are the details of your latest score:
               </h3>
-              <div id="my-name"></div>
+              <!--<div id="my-name"></div>-->
               <div class="col-lg-4 col-sm-4 scores" >
-                <div class="thumbnail">
-                  <p id="cpm" class="results"></p>
-                  <div class="caption">Your character per minute
+                <div class="thumbnail img-rounded">
+                  <p id="my-name" class="results"></p>
+                  <div class="caption">Your Username
                   </div>
                 </div>
               </div>
               <div class="col-lg-4 col-sm-4 scores" >
-                <div class="thumbnail">
+                <div class="thumbnail img-rounded">
                   <p id="wpm" class="results"></p>
                   <div class="caption">Your Words per minute
                   </div>
                 </div>
               </div>
               <div class="col-lg-4 col-sm-4 scores" >
-                <div class="thumbnail">
+                <div class="thumbnail img-rounded">
                   <p id="times" class="results"></p>
                   <div class="caption">Number of games played
                   </div>
@@ -117,10 +117,16 @@
         		<div id="timer">
         		</div>
         		<div id="wrapper">
-          		<div id="paraContainer">
-          			<p id="test-mock" class="text-fonts"></p>
-          		</div>
-      		​    <textarea id="textArea" name="textarea" rows="5" cols="100" onPaste="return false" placeholder="Timer will only start after you begin typing."></textarea>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div id="paraContainer">
+                    <p id="test-mock" class="text-fonts "></p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+      		​         <textarea id="textArea" name="textarea" rows="5" cols="100" onPaste="return false" placeholder="Timer will only start after you begin typing."></textarea>
+                </div>
+              </div>
             </div>
           </div>
           <div id="newTestWindow" class="hidden row">

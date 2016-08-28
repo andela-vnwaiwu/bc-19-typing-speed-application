@@ -135,37 +135,22 @@ function leaderboard() {
 				highestScores.push(Scores[i]);
 			}
 		}
-		console.log(highestScores);
 
-		// var listScores ={};
-		// for(m = 0; m < Scores.length; m++) {
-		// 	if(listScores.hasOwnProperty(Scores[m].username)) {
-		// 		listScores[Scores[m].username].push(Scores[m]);
-		// 	} else {
-		// 		listScores[Scores[m].username] = Scores[m];
-		// 	}
-		// }
-		// console.log(listScores);
-	// firebase.auth().onAuthStateChanged(function(user) {
-	// 	if(user) {
-	// 		var db = firebase.database();
-	// 		var ref = db.ref("scores/").on("value", function(snapshot) {
-	// 			scores = snapshot.val();
-	// 			Score = [];
-	// 			for(key in scores) {
-	// 				if(scores[key].userid == user.uid) {
-	// 					Score.push(scores[key]);
-	// 				}
-	// 			}
-	// 			Score.sort(function(a, b){
-	// 					return a.time < b.time;
-	// 			})
-	// 			console.log(Score);
-	// 			document.getElementById('wpm').innerHTML = Score[0].scores;
-	// 			document.getElementById('times').innerHTML = Score.length;
-	// 		});
-	// 	}
-	// }
+		var table = "<table class=\"table table-striped table-hover\">";
+		table += "<thead style=\"font-size: 30px\"><tr><td>#</td>";
+		table += "<td>Username</td>";
+		table += "<td>Score</td>";
+		table += "</tr></thead><tbody>"
+    for (var i = 0; i < highestScores.length; i++) {
+        table += "<tr>";
+				table += "<td>" + (i + 1) + "</td>";
+        table += "<td>" + highestScores[i].username + "</td>";
+        table += "<td>" + highestScores[i].scores + "</td>";
+        table += "</tr>";
+    }
+    table += "</tbody></table>";
+		document.getElementById("results").innerHTML = table;
+		// console.log(highestScores);
 	})
 }
 
