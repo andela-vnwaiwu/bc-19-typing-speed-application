@@ -25,7 +25,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-typing">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -35,16 +35,16 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Typing Test</a>
+            <a class="navbar-brand" href="#"><img src="images/andela-long.png" /></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a id="sign-in-status"></a></li>
-              <li><a href="#">Home</a></li>
-              <li><a href="leaderboard.html">LeaderBoards</a></li>
-              <li><a href="#" id="logout">Logout</a></li>
+              <li><a class ="white" id="sign-in-status"></a></li>
+              <li><a class ="white" href="#">HOME</a></li>
+              <li><a class ="white" href="leaderboard.html">LEADERBOARDS</a></li>
+              <li><a class ="white" href="#" id="logout">LOGOUT</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -54,6 +54,7 @@
       <div class="container">
         <div class="row">
           <h1 class="intro"> Welcome to the Typing Speed Application</h1>
+          <div id="image"><img src="images/andela.png" class=" image img-responsive img-rounded"/></div>
           <form id="authentication" class="small-container">
             <div class="form-group">
               <label for="email">Email address:</label>
@@ -73,10 +74,10 @@
         </div>
       </div>
       <div class="container">
-        <div class="jumbotron">
+        <!--<div class="jumbotron">-->
           <div id="dashboard" class="hidden">
             <div class="row">
-              <h3>
+              <h3 class="text-center">
                 These are the details of your latest score:
               </h3>
               <!--<div id="my-name"></div>-->
@@ -103,16 +104,16 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12">
-                <button id="takeTest" class="button btn btn-info">Take a test</button>
+              <div id="test-button" class="col-sm-12">
+                <button id="takeTest" class="button btn btn-info btn-block">Take a test</button>
               </div>
             </div>
           </div>
           <div id="testbox" class="hidden row">
       			<div class="modalBox">
-      				<h2>Typing Test</h2>
-      				<p>This test is supposed to last for one minute. Click the start button to start taking the test</p>
-      				<button id="startButton" class="button btn btn-success">Start Test</button>
+      				<h2 class="center" >Typing Test</h2>
+      				<p class="center" >This test is supposed to last for one minute. The timer starts when you begin typing on the area provided.</p>
+      				<!--<button id="startButton" class="button btn btn-success">Start Test</button>-->
       			</div>
         		<div id="timer">
         		</div>
@@ -124,7 +125,7 @@
                   </div>
                 </div>
                 <div class="col-lg-6">
-      		​         <textarea id="textArea" name="textarea" rows="5" cols="100" onPaste="return false" placeholder="Timer will only start after you begin typing."></textarea>
+      		​         <textarea id="textArea" name="textarea" rows="13" cols="70" onPaste="return false" placeholder="Timer will only start after you begin typing."></textarea>
                 </div>
               </div>
             </div>
@@ -136,7 +137,7 @@
               <button id="newTestButton" class="button btn btn-primary">Click to try again!</button>
             </div>
           </div>
-        </div>
+      <!--  </div> <!-- jumbotron -->
       </div>
     </main>
     <footer>
