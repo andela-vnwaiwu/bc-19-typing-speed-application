@@ -51,10 +51,6 @@ var calculateScore = function() {
 			score += 1;
 		}
 	}
-	scoreArray = [];
-	scoreArray.push([score, wordsTyped.length]);
-	document.getElementById('cpm').innerHTML = wordsTyped.length;
-	console.log(wordsTyped.length);
 	return score;
 };
 
@@ -64,7 +60,13 @@ var displayTime = function () {
 		timeRemaining--;
 		timer.innerHTML = "Time Remaining: " + timeRemaining + "s";
 
-		// console.log(timeRemaining);
+		if(timeRemaining < 21) {
+			timer.style.backgroundColor = "orange";
+		}
+
+		if(timeRemaining < 11) {
+			timer.style.backgroundColor = "red";
+		}
 
 		if(timeRemaining == 0){
 
@@ -171,15 +173,10 @@ function saveScores() {
 }
 
 
-
-var test = function() {
-	textArea.addEventListener("keydown", displayTime);
-	// testArea.addEventListener("keyup", )
-};
+textArea.addEventListener("keydown", displayTime);
 
 takeTest.addEventListener("click", showWindow);
 
-takeTest.addEventListener("click", test);
 
 newTestButton.addEventListener("click", function(){
 	window.location.reload();

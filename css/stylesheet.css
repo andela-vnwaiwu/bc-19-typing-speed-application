@@ -12,9 +12,9 @@ body {
 	position:relative;
 }
 #text-mock{
-  font-size: 18px;
   font-family: sans-serif lato;
   text-align: justify;
+  font-weight: bold;
 }
 text-fonts {
   text-align: justify;
@@ -81,31 +81,33 @@ text-fonts {
   text-align: center;
   font-size: 12px;
 }
-p {
+/*p {
   font-size: 14px;
-}
+}*/
 #takeTest {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
+#newTestButton{
+  margin: 0 auto;
+}
 
-#test-button {
+.test-button {
     margin-top: 30px;
     margin-bottom: 10px;
+    text-align: center;
 }
-#testArea {
-  margin-top: 20px;
-  width: 100%;
+#newTestWindow {
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
 }
 #paraContainer {
   float: left;
   overflow: hidden;
 }
-#testArea {
-  float: left;
-  overflow: hidden;
-}
+
 .hidden{
   visibility: hidden;
   display: none;
