@@ -87,8 +87,7 @@
         }).then(function() {
             firebase.database().ref('users/' + user.uid).set({
             username: username,
-            email: email,
-            scores:[0]
+            email: email
           })
         }, function(error) {
           console.log(error.message);
