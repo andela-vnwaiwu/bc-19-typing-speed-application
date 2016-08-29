@@ -123,16 +123,28 @@ function leaderboard() {
 		for(key in scores) {
 			Scores.push(scores[key]);
 		}
-		Scores.sort(function(a, b){
-						return a.scores < b.scores;
+		console.log(Scores);
+		Score = Scores.sort(function(a,b) {
+			if(a.scores < b.scores) {
+				return 1;
+			} else if(a.scores > b.scores){
+				return -1;
+			} else {
+				return 0;
+			}
 		})
+		// console.log(Score);
 		var highestScores = []; var new_object = {};
-		for (i=0; i< Scores.length; i++){
-			if(new_object[Scores[i].username] === undefined){
-				new_object[Scores[i].username] =  Scores[i];
-				highestScores.push(Scores[i]);
+		for (i=0; i< Score.length; i++){
+			if(new_object[Score[i].username] === undefined){
+				new_object[Score[i].username] =  Score[i];
+				highestScores.push(Score[i]);
+			} 
+			else if(new_object[Score[i].username].scores < Score[i].scores) {
+				new_object[Score[i].username] =  Score[i];
 			}
 		}
+		console.log(highestScores);
 
 		var table = "<table class=\"table table-striped table-hover\">";
 		table += "<thead style=\"font-size: 30px\"><tr><td>#</td>";
