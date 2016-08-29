@@ -1,4 +1,8 @@
-// Aunthenticate a user
+/** Storing all DOM elements needed to make the application work
+ *  inside variable for easy recalling and cleaner code.
+ * 
+ * 
+ */
 
 //Instantiating the typing application
 
@@ -14,11 +18,12 @@ var newTestWindow = document.getElementById("newTestWindow");
 var newTestButton = document.getElementById("newTestButton");
 var dashboard = document.getElementById("dashboard");
 var characters = document.getElementById("cpm");
-var words = document.getElementById("wpm");
+var wpm = document.getElementById("wpm");
 var times = document.getElementById("times");
 var finalScore = document.getElementById("finalScore");
 var image = document.getElementById("image");
 var score = 0;
+var db = firebase.database();
 
 var generatePassage = function(){
 	paraContainer.style.display = "inline-block";
@@ -90,7 +95,6 @@ var displayTime = function () {
 function getUserInfo() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
-			var db = firebase.database();
 			var ref = db.ref("scores/").on("value", function(snapshot) {
 				scores = snapshot.val();
 				Score = [];
@@ -100,30 +104,28 @@ function getUserInfo() {
 					}
 				}
 				Score.sort(function(a, b){
-						return a.time < b.time;
+					return a.time < b.time;
 				})
-				// console.log(Score);
-				document.getElementById('wpm').innerHTML = Score[0].scores;
-				document.getElementById('times').innerHTML = Score.length;
+				wpm.innerHTML = Score[0].scores;
+				times.innerHTML = Score.length;
 			});
 		}
 	})
 }
 
-// Get a user's score when they are signed in
+getUserInfo();
+
+// Displays the leaderboard scores
 function leaderboard() {
-	var db = firebase.database();
 	var ref = db.ref("scores/").on("value", function(snapshot) {
 		scores = snapshot.val();
 		Scores = [];
 		for(key in scores) {
 			Scores.push(scores[key]);
 		}
-		// console.log(Scores);
 		Scores.sort(function(a, b){
 						return a.scores < b.scores;
 		})
-		console.log(Scores);
 		var highestScores = []; var new_object = {};
 		for (i=0; i< Scores.length; i++){
 			if(new_object[Scores[i].username] === undefined){
@@ -138,15 +140,14 @@ function leaderboard() {
 		table += "<td>Score</td>";
 		table += "</tr></thead><tbody>"
     for (var i = 0; i < highestScores.length; i++) {
-        table += "<tr>";
-				table += "<td>" + (i + 1) + "</td>";
-        table += "<td>" + highestScores[i].username + "</td>";
-        table += "<td>" + highestScores[i].scores + "</td>";
-        table += "</tr>";
+			table += "<tr>";
+			table += "<td>" + (i + 1) + "</td>";
+			table += "<td>" + highestScores[i].username + "</td>";
+			table += "<td>" + highestScores[i].scores + "</td>";
+			table += "</tr>";
     }
     table += "</tbody></table>";
 		document.getElementById("results").innerHTML = table;
-		// console.log(highestScores);
 	})
 }
 
@@ -155,7 +156,6 @@ leaderboard();
 function saveScores() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
-			var db = firebase.database();
 			var ref = db.ref("scores/").push({
 				userid : user.uid,
 				username: user.displayName,
