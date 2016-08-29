@@ -1,6 +1,15 @@
 body {
   background-color: #e8ecfa;
-  font-size: 18px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .small-container {
+    width: 25%;
+  }
+  body {
+    font-size: 18px;
+  }
 }
 .image {
   margin-left: auto;
@@ -63,7 +72,7 @@ text-fonts {
 }
 .small-container {
   margin: 30px auto;
-  width: 25%;
+  /*width: 25%;*/
 }
 .jumbotron {
   text-align: center;
@@ -80,6 +89,9 @@ text-fonts {
 .caption {
   text-align: center;
   font-size: 12px;
+}
+.icon-bar {
+  background-color: #ffffff;
 }
 /*p {
   font-size: 14px;
