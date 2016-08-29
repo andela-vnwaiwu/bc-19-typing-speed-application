@@ -132,6 +132,7 @@
           document.getElementById('authentication').classList.add("hidden");
           document.getElementById('dashboard').classList.remove("hidden");
           document.getElementById('logout').classList.remove('hidden');
+          getUserInfo();
           
           // [END_EXCLUDE]
         } else {
