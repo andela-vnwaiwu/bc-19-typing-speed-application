@@ -28,13 +28,12 @@
           return;
         }
         if (username.length == "") {
-          alert('Please enter a password');
+          alert('Please enter a Username');
           return;
         }
         // Sign in with email and pass.
         // [START authwithemail]
         firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
-          console.log("I am in google");
           document.getElementById('authentication').classList.add("hidden");
           document.getElementById('dashboard').classList.remove("hidden");
         })
@@ -63,8 +62,9 @@
      */
     function handleSignUp() {
       var email = document.getElementById('email').value;
-      var username = document.getElementById('username').value;
+      var rawUsername = document.getElementById('username').value;
       var password = document.getElementById('password').value;
+      var username = rawUsername.trim();
       if (email.length < 4) {
         alert('Please enter an email address.');
         return;
@@ -125,12 +125,7 @@
           // User is signed in.
           var displayName = user.displayName;
           var email = user.email;
-          var emailVerified = user.emailVerified;
-          var photoURL = user.photoURL;
-          var isAnonymous = user.isAnonymous;
           var uid = user.uid;
-          var providerData = user.providerData;
-
           // [START_EXCLUDE silent]
           document.getElementById('sign-in-status').textContent = 'Signed in';
           document.getElementById('login').textContent = 'Sign out';
@@ -138,12 +133,7 @@
           document.getElementById('authentication').classList.add("hidden");
           document.getElementById('dashboard').classList.remove("hidden");
           document.getElementById('logout').classList.remove('hidden');
-
-          var db = firebase.database();
           
-          getUserInfo();
-          
-          // document.getElementById('cpm').innerHTML = ref;
           // [END_EXCLUDE]
         } else {
           // User is signed out.
