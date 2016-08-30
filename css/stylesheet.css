@@ -3,6 +3,9 @@ body {
   font-size: 12px;
 }
 
+html, body {
+  height: 100%;
+}
 @media screen and (min-width: 768px) {
   .small-container {
     width: 25%;
@@ -145,6 +148,7 @@ text-fonts {
   font-family: sans-serif lato;
   text-align: center;
 }
+
 .button-box {
   clear: both;
 }
@@ -155,17 +159,10 @@ text-fonts {
 .quotes-button {
   float: right;
 }
-.footer-text {
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  /*background-color: #efefef;*/
-  text-align: center;
-}
+
 footer{
   background-color: #3359DE;
   color: #FFFFFF;
   box-shadow: 2px -2px 3px #666666;
-  /*margin-bottom: 10px;*/
+  text-align: center;
 }

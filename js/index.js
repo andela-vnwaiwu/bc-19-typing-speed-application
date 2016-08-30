@@ -123,7 +123,6 @@ function leaderboard() {
 		for(key in scores) {
 			Scores.push(scores[key]);
 		}
-		console.log(Scores);
 		Score = Scores.sort(function(a,b) {
 			if(a.scores < b.scores) {
 				return 1;
@@ -133,7 +132,6 @@ function leaderboard() {
 				return 0;
 			}
 		})
-		// console.log(Score);
 		var highestScores = []; var new_object = {};
 		for (i=0; i< Score.length; i++){
 			if(new_object[Score[i].username] === undefined){
@@ -144,7 +142,6 @@ function leaderboard() {
 				new_object[Score[i].username] =  Score[i];
 			}
 		}
-		console.log(highestScores);
 
 		var table = "<table class=\"table table-striped table-hover\">";
 		table += "<thead style=\"font-size: 30px\"><tr><td>#</td>";
